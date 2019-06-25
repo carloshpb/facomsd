@@ -57,6 +57,9 @@ public class AnswerPresentationThread implements Runnable {
                 answer = (Message) objectInputStream.readObject();
 
                 if (answer != null) {
+                    if (timer != null) {
+                        timer.stop();
+                    }
                     if (answer.getLastOption() == 5) {
                         System.out.println("Shutting down.");
                         this.shutdown();
