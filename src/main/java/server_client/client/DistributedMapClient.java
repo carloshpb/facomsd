@@ -1,5 +1,6 @@
 package server_client.client;
 
+import io.atomix.cluster.MemberId;
 import io.atomix.cluster.Node;
 import io.atomix.cluster.discovery.BootstrapDiscoveryProvider;
 import io.atomix.core.Atomix;
@@ -7,6 +8,10 @@ import io.atomix.core.AtomixBuilder;
 import io.atomix.core.map.DistributedMap;
 import io.atomix.core.profile.ConsensusProfile;
 import io.atomix.utils.net.Address;
+import io.atomix.utils.serializer.Namespace;
+import io.atomix.utils.serializer.Namespaces;
+import io.atomix.utils.serializer.Serializer;
+import server_client.model.Message;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,6 +28,7 @@ public class DistributedMapClient {
         }
 
         AtomixBuilder builder = Atomix.builder();
+
         Atomix atomix = builder.withMemberId("client-"+myId)
                 .withAddress(new Address("127.0.0.1", 6000))
                 .withMembershipProvider(BootstrapDiscoveryProvider.builder()
@@ -42,25 +48,36 @@ public class DistributedMapClient {
                 .build();
 
         atomix.start().join();
+
         System.out.println("Cluster joined");
 
-        DistributedMap<Object, Object> map = atomix.mapBuilder("my-map")
-                .withCacheEnabled()
-                .build();
+//        Serializer serializer = Serializer.using(Namespace.builder()
+//                .register(Namespaces.BASIC)
+//                .register(MemberId.class)
+//                .register(Message.class)
+//                .build());
 
-        map.put("foo", "Hello world!");
+        Message test = new Message(1,1,"Ola");
 
-        System.out.println(map.get("foo"));
-        System.out.println(map.get("bar"));
+        atomix.getCommunicationService().send("Oqueéisso", test, MemberId.from("member-0"));
 
-        String value = (String) map.get("foo");
-
-        if (map.replace("foo", value, "Hello world again!")) {
-            System.out.println();
-        }
-
-        System.out.println(map.get("foo"));
-        System.out.println(map.get("bar"));
+//        DistributedMap<Object, Object> map = atomix.mapBuilder("my-map")
+//                .withCacheEnabled()
+//                .build();
+//
+//        map.put("foo", "Hello world!");
+//
+//        System.out.println(map.get("foo"));
+//        System.out.println(map.get("bar"));
+//
+//        String value = (String) map.get("foo");
+//
+//        if (map.replace("foo", value, "Hello world again!")) {
+//            System.out.println();
+//        }
+//
+//        System.out.println(map.get("foo"));
+//        System.out.println(map.get("bar"));
 
     }
 }

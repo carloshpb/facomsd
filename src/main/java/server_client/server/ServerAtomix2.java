@@ -47,13 +47,15 @@ public class ServerAtomix2 {
 
         System.out.println("Cluster joined");
 
-        DistributedMap<String, String> map = (DistributedMap<String, String>) atomix.getAtomicMap("my-map");
-        AsyncDistributedMap<String, String> asyncMap = map.async();
 
-        asyncMap.get("foo").thenAccept(value -> {
-            asyncMap.replace("foo", value, value + "world").thenAccept(succeeded -> {
-                System.out.println("Replace successful!");
-            });
-        });
+
+//        DistributedMap<String, String> map = (DistributedMap<String, String>) atomix.getAtomicMap("my-map");
+//        AsyncDistributedMap<String, String> asyncMap = map.async();
+//
+//        asyncMap.get("foo").thenAccept(value -> {
+//            asyncMap.replace("foo", value, value + "world").thenAccept(succeeded -> {
+//                System.out.println("Replace successful!");
+//            });
+//        });
     }
 }

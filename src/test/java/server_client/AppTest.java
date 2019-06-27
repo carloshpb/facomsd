@@ -75,7 +75,7 @@ public class AppTest {
     @Test
     @Order(3)
     void stateRecovery() {
-        /* Teste responsável para verificar se o Server recupera o seu Banco de Dados em memória, através do Log */
+        /* Teste responsável para verificar se o ServerAtomix recupera o seu Banco de Dados em memória, através do Log */
 
         List<Message> listaDeItens = this.stateRecoveryBodyPart1(1, enviarMensagens, receberRespostas);
         this.stopServerAndClients(executor);
@@ -87,7 +87,7 @@ public class AppTest {
     @Test
     @Order(4)
     void executionOrder() {
-        /* Teste responsável para verificar se o Server está adicionando as mensagens na ordem correta */
+        /* Teste responsável para verificar se o ServerAtomix está adicionando as mensagens na ordem correta */
 
         this.executionOrderBody(1, 1000, enviarMensagens, receberRespostas);
     }
