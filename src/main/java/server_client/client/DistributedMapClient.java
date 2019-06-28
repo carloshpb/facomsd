@@ -59,7 +59,9 @@ public class DistributedMapClient {
 
         Message test = new Message(1,1,"Ola");
 
-        atomix.getCommunicationService().send("Oqueéisso", test, MemberId.from("member-0"));
+        atomix.getCommunicationService().send("testando", test, MemberId.from("member-0"));
+
+
 
 //        DistributedMap<Object, Object> map = atomix.mapBuilder("my-map")
 //                .withCacheEnabled()

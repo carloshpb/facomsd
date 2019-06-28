@@ -41,13 +41,13 @@ dependencies {
 //    compile 'io.atomix.copycat:copycat-server:3.0.6'
 //    compile 'io.atomix.catalyst:catalyst-netty:3.0.6'
 
-    api "io.atomix:atomix:3.0.6"
-    api "io.atomix:atomix-raft:3.0.6"
-    api "io.atomix:atomix-gossip:3.0.6"
-    api "io.atomix:atomix-primitive:3.0.6"
-    api "io.atomix:atomix-storage:3.0.6"
-    api "io.atomix:atomix-utils:3.0.6"
-    api "io.atomix:atomix-primary-backup:3.0.6"
+    api "io.atomix:atomix:3.1.5"
+    api "io.atomix:atomix-raft:3.1.5"
+    api "io.atomix:atomix-gossip:3.1.5"
+    api "io.atomix:atomix-primitive:3.1.5"
+    api "io.atomix:atomix-storage:3.1.5"
+    api "io.atomix:atomix-utils:3.1.5"
+    api "io.atomix:atomix-primary-backup:3.1.5"
 
 }
 

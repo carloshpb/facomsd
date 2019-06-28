@@ -48,6 +48,8 @@ public class ServerAtomix2 {
         System.out.println("Cluster joined");
 
 
+        atomix.
+
 
 //        DistributedMap<String, String> map = (DistributedMap<String, String>) atomix.getAtomicMap("my-map");
 //        AsyncDistributedMap<String, String> asyncMap = map.async();
