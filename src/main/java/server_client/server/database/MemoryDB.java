@@ -23,6 +23,7 @@ public class MemoryDB {
     /* Nosso banco de dados (DB) em memória será esta simples lista
     (objeto ArrayList será criado para esta variável) */
     // private static volatile Map<BigInteger, byte[]> bancoEmMemoria;
+//    private static volatile Map<BigInteger, String> bancoEmMemoria;
     private static volatile Map<BigInteger, String> bancoEmMemoria;
 
     /* Construtor do MemoryDB
