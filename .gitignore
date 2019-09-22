@@ -4,6 +4,7 @@
 # Only ignore the build directory in the same directory as .gitignore for Gradle
 /build/
 /out/
+target/
 
 # Ignore Gradle GUI config
 gradle-app.setting
